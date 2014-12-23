@@ -17,8 +17,6 @@ import robt.utils.TalonCompressor;
  */
 public class CompressorSub extends Subsystem {
     TalonCompressor comp=new TalonCompressor(HW.presssureSwitchSlot,HW.pressureSwitchChannel,HW.compressorSlot,HW.compressorChannel);
-    DoubleSolenoid armSolenoid=new DoubleSolenoid(HW.armSolenoid1Channel,HW.armSolenoid2Channel);
-    DoubleSolenoid armStage2=new DoubleSolenoid(HW.armStage2Channel1,HW.armStage2Channel2);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -37,20 +35,4 @@ public class CompressorSub extends Subsystem {
         return comp.enabled();
     }
     
-    
-    public void armUp(){
-        armSolenoid.set(DoubleSolenoid.Value.kForward);
-    }
-    
-    public void armDown(){
-        armSolenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-    
-    public void armStage2Up(){
-        armStage2.set(DoubleSolenoid.Value.kForward);
-    }
-    
-    public void armStage2Down(){
-        armStage2.set(DoubleSolenoid.Value.kReverse);
-    }
 }

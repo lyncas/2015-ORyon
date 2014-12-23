@@ -49,12 +49,22 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    private Button b_A=new JoystickButton(gp1,gp1.BTN_A);
-    private Button b_B=new JoystickButton(gp1,gp1.BTN_B);
-    private Button b_RB=new JoystickButton(gp1,gp1.BUMPER_R);
-    private Button b_LB=new JoystickButton(gp1,gp1.BUMPER_L);
-    private Button b_DPAD_Y_UP=new AxisButton(gp1,GamePad.DPAD_Y_U);
-    private Button b_DPAD_Y_DN=new AxisButton(gp1,GamePad.DPAD_Y_D);
+    private Button b_dpadU = new AxisButton(gp1, GamePad.DPAD_Y_U);
+    private Button b_dpadD = new AxisButton(gp1, GamePad.DPAD_Y_D);
+    private Button b_dpadR = new AxisButton(gp1, GamePad.DPAD_X_R);
+    private Button b_dpadL = new AxisButton(gp1, GamePad.DPAD_X_L);
+    private Button b_bumpR = new JoystickButton(gp1, gp1.BUMPER_R);
+    private Button b_bumpL = new JoystickButton(gp1, gp1.BUMPER_L);
+    private Button b_trigR = new JoystickButton(gp1, gp1.TRIGGER_R);
+    private Button b_trigL = new JoystickButton(gp1, gp1.TRIGGER_L);
+    private Button b_Back = new JoystickButton(gp1, gp1.BTN_BACK);
+    private Button b_Start = new JoystickButton(gp1, gp1.BTN_START);
+    private Button b_A = new JoystickButton(gp1, gp1.BTN_A);
+    private Button b_X = new JoystickButton(gp1, gp1.BTN_X);
+    private Button b_B = new JoystickButton(gp1, gp1.BTN_B);
+    private Button b_Y = new JoystickButton(gp1, gp1.BTN_Y);
+    private Button b_clicR = new JoystickButton(gp1, gp1.CLICK_R);
+    private Button b_clicL = new JoystickButton(gp1, gp1.CLICK_L);
 
     
     public OI(){
