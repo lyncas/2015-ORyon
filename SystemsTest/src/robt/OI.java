@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import robt.commands.CommandBase;
 import robt.utils.GamePad;
 import robt.utils.GamePad.AxisButton;
+import robt.utils.IncCommand;
+import robt.utils.SetCommand;
 import robt.utils.ToggleCommand;
 
 /**
@@ -71,7 +73,27 @@ public class OI {
     public OI(){
         //b_B.whenPressed(new ToggleCompressor());
         
-        b_X.whenPressed(new ToggleCommand(CommandBase.motors.getMotor(0)));
+   
+        b_X.whenPressed(new ToggleCommand(CommandBase.motors.getMotor(0), 1));
+        
+        b_A.whenPressed(new ToggleCommand(CommandBase.motors.getMotor(0), 1));
+        
+        b_dpadU.whileHeld(new IncCommand(CommandBase.motors.getMotor(2), 0.05));
+        b_dpadD.whileHeld(new IncCommand(CommandBase.motors.getMotor(2), -0.05));
+        
+        b_dpadR.whileHeld(new IncCommand(CommandBase.motors.getMotor(3), 0.05));
+        b_dpadL.whileHeld(new IncCommand(CommandBase.motors.getMotor(3), -0.05));
+        
+        
+        b_bumpR.whenPressed(new SetCommand(CommandBase.motors.getMotor(4), 1));
+        b_bumpR.whenPressed(new SetCommand(CommandBase.motors.getMotor(5), 1));
+        b_bumpR.whenReleased(new SetCommand(CommandBase.motors.getMotor(4), 0));
+        b_bumpR.whenReleased(new SetCommand(CommandBase.motors.getMotor(5), 0));
+        
+        b_bumpL.whenPressed(new SetCommand(CommandBase.motors.getMotor(4), 1));
+        b_bumpL.whenPressed(new SetCommand(CommandBase.motors.getMotor(5), 1));
+        b_bumpL.whenReleased(new SetCommand(CommandBase.motors.getMotor(4), 0));
+        b_bumpL.whenReleased(new SetCommand(CommandBase.motors.getMotor(5), 0));
     }
 }
 

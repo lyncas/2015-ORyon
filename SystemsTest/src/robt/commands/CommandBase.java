@@ -1,7 +1,6 @@
 package robt.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import robt.OI;
 import robt.subsystems.*;
 
