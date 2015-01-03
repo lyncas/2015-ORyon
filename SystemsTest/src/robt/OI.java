@@ -5,8 +5,10 @@ import robt.commands.compress.ToggleCompressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import robt.commands.CommandBase;
 import robt.utils.GamePad;
 import robt.utils.GamePad.AxisButton;
+import robt.utils.ToggleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,7 +70,9 @@ public class OI {
 
     
     public OI(){
-        b_B.whenPressed(new ToggleCompressor());
+        //b_B.whenPressed(new ToggleCompressor());
+        
+        b_X.whenPressed(new ToggleCommand(CommandBase.motors.getMotor(0)));
     }
 }
 

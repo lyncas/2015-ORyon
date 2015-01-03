@@ -22,4 +22,5 @@ public class HW {
     //SENSORS
     public static final int 
             presssureSwitchSlot=1,  pressureSwitchChannel=1;
+    public static int MOTORS_BEGIN = 1;
 }

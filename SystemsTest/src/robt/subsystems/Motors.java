@@ -5,8 +5,10 @@
  */
 package robt.subsystems;
 
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import robt.HW;
 
 /**
  *
@@ -17,7 +19,7 @@ public class Motors extends Subsystem {
     
     public Motors() {
         super("motors");
-        for(int i =5; i<=10; i++){
+        for(int i = HW.MOTORS_BEGIN; i < HW.MOTORS_BEGIN+6; i++){
             motors[i] = new Talon(1,i);
         }
     }
@@ -33,5 +35,9 @@ public class Motors extends Subsystem {
     
     public void setPWM(int channel, double power){
         motors[channel].set(power);
+    }
+    
+    public SpeedController getMotor(int channel){
+        return motors[channel];
     }
 }
