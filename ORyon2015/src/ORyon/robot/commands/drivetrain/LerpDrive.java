@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Linear interpolation drive between b on left and right edges of joystick
- * range and a at corners. Allows fine control with the right joystick PID
- * CURRENTLY DISABLED
+ * range and a at corners. Now using an apparently "cheesy" scheme: one stick
+ * for power, and one for turning
  */
 public class LerpDrive extends Command {
 
@@ -83,11 +83,11 @@ public class LerpDrive extends Command {
 	if (gp != null) {
 	    move = gp.getLY();
 	    move = Math.abs(move) > threshold ? move : 0;
-	    turn = gp.getLX();
+	    turn = gp.getRX();
 	    turn = Math.abs(turn) > threshold ? turn : 0;
 
-	    move += gp.getRY() / 2;
-	    turn += gp.getRX() / 2;
+	    //move += gp.getRY() / 2;
+	    //turn += gp.getRX() / 2;
 
 	    if (Math.abs(move) > 1) {
 		move /= Math.abs(move);
@@ -96,7 +96,7 @@ public class LerpDrive extends Command {
 		turn /= Math.abs(turn);
 	    }
 	} else {
-	    throw new IllegalStateException("JoyArcadeTwoSpeed only works with gamepads for now.");
+	    throw new IllegalStateException("LerpDrive only works with gamepads for now.");
 	}
     }
 
