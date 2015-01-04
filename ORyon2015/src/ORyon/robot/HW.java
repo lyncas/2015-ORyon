@@ -15,4 +15,8 @@ public class HW {
     // ELEVATOR MOTORS
     public static final int
     		lift1 = 4, lift2 = 5;
+    
+    // ELEVATOR ENCODER
+    public static final int 
+    		encA = 0, encB = 1;
 }
