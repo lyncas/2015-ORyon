@@ -3,36 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ORyon.robot.utils;
+package ORyon.robot.commands;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  * @author Sam
  * 
  * Can decrement if increment is negative
  */
-public class IncCommand extends Command {
-    private double inc_ = 0.0;
+public class SetCommand extends Command {
+    private double setpoint_ = 0.0;
     private SpeedController motor_;
     
-    private IncCommand() {
+    private SetCommand() {
     }
     
-    public IncCommand(SpeedController cont){
+    public SetCommand(SpeedController cont){
         this(cont, 0.1);
     }
     
-    public IncCommand(SpeedController cont, double increment){
+    public SetCommand(SpeedController cont, double setpoint){
         motor_ = cont;
-        inc_ = increment;
+        setpoint_ = setpoint;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        motor_.set(motor_.get() + inc_);
+        motor_.set(setpoint_);
     }
 
     // Called repeatedly when this Command is scheduled to run

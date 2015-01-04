@@ -4,6 +4,7 @@ package ORyon.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import ORyon.robot.commands.elevator.ContinuousLiftCommand;
 import ORyon.robot.utils.GamePad;
 import ORyon.robot.utils.GamePad.AxisButton;
 
@@ -35,5 +36,11 @@ public class OI {
     private Button b_Y = new JoystickButton(gp1, gp1.BTN_Y);
     private Button b_clicR = new JoystickButton(gp1, gp1.CLICK_R);
     private Button b_clicL = new JoystickButton(gp1, gp1.CLICK_L);
+    
+    
+    public OI(){
+    	b_trigR.whileHeld(new ContinuousLiftCommand(1));
+    	b_trigL.whileHeld(new ContinuousLiftCommand(-1));
+    }
 }
 

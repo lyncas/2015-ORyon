@@ -3,35 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ORyon.robot.utils;
+package ORyon.robot.commands;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  * @author Sam
- * 
- * Can decrement if increment is negative
  */
-public class SetCommand extends Command {
-    private double setpoint_ = 0.0;
+public class ToggleCommand extends Command {
+    private boolean state_ = false;
+    private double power_ = 0.0;
     private SpeedController motor_;
     
-    private SetCommand() {
+    private ToggleCommand() {
     }
     
-    public SetCommand(SpeedController cont){
-        this(cont, 0.1);
+    public ToggleCommand(SpeedController cont){
+        this(cont, 1.0);
     }
     
-    public SetCommand(SpeedController cont, double setpoint){
-        motor_ = cont;
-        setpoint_ = setpoint;
+    public ToggleCommand(SpeedController cont, double power){
+        motor_= cont;
+        power_ = power;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        motor_.set(setpoint_);
+        state_ = !state_;
+        if(state_){
+            motor_.set(power_);
+        }
+        else{
+            motor_.set(0);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run

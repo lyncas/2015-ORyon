@@ -7,9 +7,7 @@ package ORyon.robot.commands.drivetrain;
 import ORyon.robot.utils.GamePad;
 import ORyon.robot.Robot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

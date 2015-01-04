@@ -26,7 +26,7 @@ public class Drivetrain extends Subsystem {
     	frontRightDrive = new Victor(HW.frontright);
     	backRightDrive = new Victor(HW.backrght);
     	
-    	drive = new BetterDrive(frontLeftDrive, backLeftDrive, frontRightDrive, backLeftDrive);
+    	drive = new BetterDrive(frontLeftDrive, backLeftDrive, frontRightDrive, backRightDrive);
     }
 
     public void initDefaultCommand() {

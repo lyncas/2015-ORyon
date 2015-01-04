@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ORyon.robot.utils;
+package ORyon.robot.commands;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,33 +11,28 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  * @author Sam
+ * 
+ * Can decrement if increment is negative
  */
-public class ToggleCommand extends Command {
-    private boolean state_ = false;
-    private double power_ = 0.0;
+public class IncCommand extends Command {
+    private double inc_ = 0.0;
     private SpeedController motor_;
     
-    private ToggleCommand() {
+    private IncCommand() {
     }
     
-    public ToggleCommand(SpeedController cont){
-        this(cont, 1.0);
+    public IncCommand(SpeedController cont){
+        this(cont, 0.1);
     }
     
-    public ToggleCommand(SpeedController cont, double power){
-        motor_= cont;
-        power_ = power;
+    public IncCommand(SpeedController cont, double increment){
+        motor_ = cont;
+        inc_ = increment;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        state_ = !state_;
-        if(state_){
-            motor_.set(power_);
-        }
-        else{
-            motor_.set(0);
-        }
+        motor_.set(motor_.get() + inc_);
     }
 
     // Called repeatedly when this Command is scheduled to run

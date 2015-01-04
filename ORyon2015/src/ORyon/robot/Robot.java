@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import ORyon.robot.subsystems.Drivetrain;
+import ORyon.robot.subsystems.Elevator;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -17,6 +18,7 @@ import ORyon.robot.subsystems.Drivetrain;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Elevator elevator = new Elevator();
 	public static OI oi;
 
     Command autonomousCommand;

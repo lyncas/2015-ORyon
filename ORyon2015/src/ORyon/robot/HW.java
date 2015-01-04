@@ -11,4 +11,8 @@ public class HW {
     public static final int 
     		frontleft = 0, frontright = 1,
     		backleft = 2, backrght = 3;
+    
+    // ELEVATOR MOTORS
+    public static final int
+    		lift1 = 4, lift2 = 5;
 }
