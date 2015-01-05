@@ -1,38 +1,37 @@
 package ORyon.robot.commands.elevator;
 
-
 import ORyon.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ContinuousLiftCommand extends Command {
-	private double m_power = 0.0;
+public class PIDLiftCommand extends Command {
+	private double m_setpoint;
 
-    public ContinuousLiftCommand(double power) {
+	// Setpoint is inches above min
+    public PIDLiftCommand(double setpoint) {
         requires(Robot.elevator);
-        m_power = power;
+        m_setpoint=setpoint;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.disable();
+    	Robot.elevator.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.set(m_power);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.elevator.onTarget();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.set(0);
+    	Robot.elevator.disable();
     }
 
     // Called when another command which requires one or more of the same

@@ -19,6 +19,7 @@ public class LerpDrive extends Command {
 
     private double move = 0, turn = 0;
     private double driveLeft = 0, driveRight = 0;
+    private double m_limit = 1;
     private Joystick joy1;
     private GamePad gp;
 
@@ -31,6 +32,12 @@ public class LerpDrive extends Command {
 	// Use requires() here to declare subsystem dependencies
 	requires(Robot.drivetrain);
     }
+    
+    public LerpDrive(double limit) {
+    	// Use requires() here to declare subsystem dependencies
+    	requires(Robot.drivetrain);
+    	m_limit=limit;
+        }
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -60,6 +67,9 @@ public class LerpDrive extends Command {
 	    driveRight = -1 * turn * b - move * (-1 - turn * (a + 1) + turn * b);
 	}
 
+	//square scaling
+	driveLeft *= m_limit;
+	driveRight *= m_limit;
 	Robot.drivetrain.tankDriveUnsmoothed(driveLeft, driveRight);
     }
 

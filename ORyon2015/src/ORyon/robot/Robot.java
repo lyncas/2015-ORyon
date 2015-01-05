@@ -38,9 +38,6 @@ public class Robot extends IterativeRobot {
     }
 	
 	public void disabledPeriodic() {
-		GamePad gp = (GamePad) oi.getJoy1();
-		/*for(int i =0; i<=10;i++)
-			System.out.println(String.valueOf(i)+"  " + gp.getRawAxis(i));*/
 		Scheduler.getInstance().run();
 	}
 

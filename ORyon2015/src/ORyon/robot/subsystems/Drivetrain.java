@@ -36,7 +36,7 @@ public class Drivetrain extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new LerpDrive());
+        setDefaultCommand(new LerpDrive(0.6));
     }
     
     public void tankDriveUnsmoothed(double left, double right){
