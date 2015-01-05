@@ -83,7 +83,7 @@ public class LerpDrive extends Command {
 	if (gp != null) {
 	    move = gp.getLY();
 	    move = Math.abs(move) > threshold ? move : 0;
-	    turn = gp.getRX();
+	    turn = -gp.getRX();
 	    turn = Math.abs(turn) > threshold ? turn : 0;
 
 	    //move += gp.getRY() / 2;

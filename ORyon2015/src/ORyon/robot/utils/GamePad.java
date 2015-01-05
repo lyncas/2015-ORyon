@@ -82,9 +82,9 @@ public class GamePad extends Joystick {
      *
      */
     private void DmodeInit(){
-        AXIS_LX=1;  AXIS_LY=2;
-        AXIS_RX=3;  AXIS_RY=4;
-        DPAD_X=5;   DPAD_Y=6;
+        AXIS_LX=0;  AXIS_LY=1;
+        AXIS_RX=2;  AXIS_RY=3;
+        DPAD_X=4;   DPAD_Y=5;
         TRIGGER=0;
 
         BTN_X=1;        BTN_Y=4;
@@ -94,7 +94,7 @@ public class GamePad extends Joystick {
         CLICK_L=11;     CLICK_R=12;
 	BTN_BACK=9;     BTN_START=10;
 
-        setAxisReversed(AXIS_LY,true);
+        setAxisReversed(AXIS_LY,false);
         setAxisReversed(AXIS_RY,true);
         setAxisReversed(DPAD_Y,true);
     }

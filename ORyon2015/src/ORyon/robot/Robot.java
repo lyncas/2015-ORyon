@@ -5,8 +5,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import ORyon.robot.commands.auton.MainAuton;
+import ORyon.robot.subsystems.Clamp;
 import ORyon.robot.subsystems.Drivetrain;
 import ORyon.robot.subsystems.Elevator;
+import ORyon.robot.utils.GamePad;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Elevator elevator = new Elevator();
+	public static final Clamp clamp = new Clamp();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -29,10 +33,14 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
-
+		autonomousCommand=new MainAuton();
+		//getWatchdog().setEnabled(false);
     }
 	
 	public void disabledPeriodic() {
+		GamePad gp = (GamePad) oi.getJoy1();
+		/*for(int i =0; i<=10;i++)
+			System.out.println(String.valueOf(i)+"  " + gp.getRawAxis(i));*/
 		Scheduler.getInstance().run();
 	}
 

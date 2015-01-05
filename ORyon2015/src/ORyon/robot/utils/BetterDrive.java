@@ -91,4 +91,12 @@ public class BetterDrive extends RobotDrive {
     public double getRightPrev() {
         return rightPrev;
     }
+    
+    public double getLeftPower(){
+    	return m_rearLeftMotor.get();
+    }
+    
+    public double getRightPower(){
+    	return m_rearRightMotor.get();
+    }
 }

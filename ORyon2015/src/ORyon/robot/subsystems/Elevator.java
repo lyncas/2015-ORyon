@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
@@ -21,6 +20,8 @@ public class Elevator extends PIDSubsystem {
     	lift1 = new Victor(HW.lift1);
     	lift2 = new Victor(HW.lift2); 
     	enc = new Encoder(HW.encA,HW.encB,false,EncodingType.k4X);
+    	setPercentTolerance(5.0);
+    	this.disable();
     }
     
     

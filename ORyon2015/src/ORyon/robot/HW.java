@@ -10,13 +10,18 @@ public class HW {
 	// DRIVE MOTORS
     public static final int 
     		frontleft = 0, frontright = 1,
-    		backleft = 2, backrght = 3;
+    		backleft = 2, backrght = 3,
+    		backLeft2=4, backRight2=5;
     
     // ELEVATOR MOTORS
     public static final int
-    		lift1 = 4, lift2 = 5;
+    		lift1 = 6, lift2 = 7;
     
     // ELEVATOR ENCODER
     public static final int 
     		encA = 0, encB = 1;
+    
+    // CLAMP SOLENOIDS
+    public static final int
+    		solenoid = 0;
 }
