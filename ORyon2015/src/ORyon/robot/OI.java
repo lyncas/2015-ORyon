@@ -42,6 +42,10 @@ public class OI {
     public OI(){
     	b_trigR.whileHeld(new ContinuousLiftCommand(1));
     	b_trigL.whileHeld(new ContinuousLiftCommand(-1));
+    	
+    	b_bumpR.whileHeld(new ContinuousLiftCommand(0.3));
+    	b_bumpL.whileHeld(new ContinuousLiftCommand(-0.3));
+    	
     	b_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));
     }
 }
