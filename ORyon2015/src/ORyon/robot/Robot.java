@@ -34,7 +34,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		autonomousCommand=new MainAuton();
-		//getWatchdog().setEnabled(false);
     }
 	
 	public void disabledPeriodic() {
@@ -42,7 +41,6 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -55,9 +53,7 @@ public class Robot extends IterativeRobot {
 
     public void teleopInit() {
 		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
+        // teleop starts running.
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
