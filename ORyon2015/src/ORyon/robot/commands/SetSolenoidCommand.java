@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Sam
  * 
- * Can decrement if increment is negative
  */
 public class SetSolenoidCommand extends Command {
     private boolean m_position = false;

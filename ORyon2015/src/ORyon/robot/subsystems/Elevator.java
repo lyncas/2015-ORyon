@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Elevator extends Subsystem {
     
-    private Victor lift1;
-    private DigitalInput bottom;
+    private Victor lift1; // elevator motor
+    private DigitalInput bottom; // button to stop arm when fully down
 
     public Elevator(){
     	super("Elevator");

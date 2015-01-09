@@ -1,7 +1,7 @@
 
 package ORyon.robot;
 
-import ORyon.robot.commands.auton.MainAuton;
+import ORyon.robot.commands.MainAuton;
 import ORyon.robot.subsystems.Clamp;
 import ORyon.robot.subsystems.Drivetrain;
 import ORyon.robot.subsystems.Elevator;

@@ -12,8 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Linear interpolation drive between b on left and right edges of joystick
- * range and a at corners. Now using an apparently "cheesy" scheme: one stick
- * for power, and one for turning
+ * range and a at corners. Now using one stick
+ * for power, and one for turning.
+ * 
+ * Based off a post by Ether on Chief Delphi
  */
 public class LerpDrive extends Command {
 
@@ -52,7 +54,7 @@ public class LerpDrive extends Command {
     protected void execute() {
 	calculateInputs();
 
-	//The important part
+	//The important part. Unsimplified for added insight
 	if (move >= 0 && turn >= 0) {//Q1
 	    driveLeft = turn * b + move * (1 - turn * b);
 	    driveRight = -1 * turn * b + move * ((1 - turn * (a + 1)) + turn * b);
@@ -93,11 +95,9 @@ public class LerpDrive extends Command {
 	if (gp != null) {
 	    move = gp.getLY();
 	    move = Math.abs(move) > threshold ? move : 0;
+	    
 	    turn = -gp.getRX();
 	    turn = Math.abs(turn) > threshold ? turn : 0;
-
-	    //move += gp.getRY() / 2;
-	    //turn += gp.getRX() / 2;
 
 	    if (Math.abs(move) > 1) {
 		move /= Math.abs(move);

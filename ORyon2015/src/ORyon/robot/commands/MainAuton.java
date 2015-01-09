@@ -1,14 +1,13 @@
-package ORyon.robot.commands.auton;
+package ORyon.robot.commands;
 
 import ORyon.robot.Robot;
-import ORyon.robot.commands.SetSolenoidCommand;
 import ORyon.robot.commands.drivetrain.MoveTimeCommand;
 import ORyon.robot.commands.elevator.ContinuousLiftCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
- *
+ * A sequence of commands to create a simple time-based autonomous
  */
 public class MainAuton extends CommandGroup {
     
