@@ -4,6 +4,12 @@ package ORyon.robot.utils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
+/**
+ * 
+ * @author Sam
+ *
+ * A class to support the Logitech gamepads
+ */
 public class GamePad extends Joystick {
     /**
      * Select the mode with the switch on the back of the joystick.
@@ -26,13 +32,13 @@ public class GamePad extends Joystick {
                 TRIGGER;
     public int	BTN_X,	    BTN_Y,
                 BTN_A,	    BTN_B,
-		BUMPER_L,   BUMPER_R,
+                BUMPER_L,   BUMPER_R,
                 TRIGGER_L,  TRIGGER_R,
                 CLICK_L,    CLICK_R,
-		BTN_BACK,   BTN_START;
+                BTN_BACK,   BTN_START;
     //Constants for using the digital pad as buttons
     public static final int DPAD_X_R=96,	DPAD_X_L=97,
-			    DPAD_Y_U=98,	DPAD_Y_D=99;
+			    			DPAD_Y_U=98,	DPAD_Y_D=99;
 
 
     /**People will use this constructor...
@@ -49,12 +55,13 @@ public class GamePad extends Joystick {
         }
 	System.out.println(this.getClass().getName()+" initialized in mode "+(thisMode==MODE_D ? "D":"X"));
     }
+    
     //...and this one is for us to make the joystick stuff work
     protected GamePad(int port, int numAxisTypes, int numButtonTypes){
         super(port,numAxisTypes,numButtonTypes);
-	for(int i=0;i<m_numAxes;i++){
-	    reversedAxes[i]=1.0;
-	}
+        for(int i=0;i<m_numAxes;i++){
+        	reversedAxes[i]=1.0;
+        }
     }
 
     /**When the switch on the back of the controller says 'X'
@@ -71,7 +78,7 @@ public class GamePad extends Joystick {
         BUMPER_L=5;     BUMPER_R=6;
         TRIGGER_L=0;    TRIGGER_R=0;
         CLICK_L=9;      CLICK_R=10;
-	BTN_BACK=7;     BTN_START=8;
+        BTN_BACK=7;     BTN_START=8;
 
         setAxisReversed(AXIS_LY,true);
         setAxisReversed(AXIS_RY,true);
@@ -92,7 +99,7 @@ public class GamePad extends Joystick {
         BUMPER_L=5;     BUMPER_R=6;
         TRIGGER_L=7;    TRIGGER_R=8;
         CLICK_L=11;     CLICK_R=12;
-	BTN_BACK=9;     BTN_START=10;
+        BTN_BACK=9;     BTN_START=10;
 
         setAxisReversed(AXIS_LY,false);
         setAxisReversed(AXIS_RY,true);
@@ -245,7 +252,7 @@ public class GamePad extends Joystick {
 		if(m_buttonAxis==GamePad.DPAD_X_L){
 		    return m_gp.getDpadX()<-m_threshold;
 		}
-	    //It's just a regular button. Why did the developer use this class? Silly developer! (ok, for compatibility, wise guy)
+	    
 	    return m_gp.getRawButton(m_buttonAxis);
 	}
 
