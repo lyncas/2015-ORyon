@@ -3,7 +3,6 @@ package ORyon.robot.subsystems;
 import ORyon.robot.HW;
 import ORyon.robot.commands.drivetrain.LerpDrive;
 import ORyon.robot.utils.BetterDrive;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

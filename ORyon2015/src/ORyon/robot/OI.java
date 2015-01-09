@@ -15,6 +15,7 @@ import ORyon.robot.utils.GamePad.AxisButton;
  */
 public class OI {
 	
+	// Two gamepads for two drivers
 	GamePad gp1=new GamePad(1,GamePad.MODE_D);
 	GamePad gp2=new GamePad(2,GamePad.MODE_D);
 	
@@ -22,6 +23,7 @@ public class OI {
         return gp1;
     }
     
+	// A list of all the buttons in case we ever need them
     private Button b_dpadU = new AxisButton(gp1, GamePad.DPAD_Y_U);
     private Button b_dpadD = new AxisButton(gp1, GamePad.DPAD_Y_D);
     private Button b_dpadR = new AxisButton(gp1, GamePad.DPAD_X_R);
@@ -57,6 +59,7 @@ public class OI {
     private Button b2_clicR = new JoystickButton(gp2, gp2.CLICK_R);
     private Button b2_clicL = new JoystickButton(gp2, gp2.CLICK_L);
     
+    // Initialize the mapping from buttons to commands
     public OI(){
     	b_trigR.whileHeld(new ContinuousLiftCommand(1));
     	b_trigL.whileHeld(new ContinuousLiftCommand(-1));

@@ -1,15 +1,14 @@
 
 package ORyon.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import ORyon.robot.commands.auton.MainAuton;
 import ORyon.robot.subsystems.Clamp;
 import ORyon.robot.subsystems.Drivetrain;
 import ORyon.robot.subsystems.Elevator;
-import ORyon.robot.utils.GamePad;
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The VM is configured to automatically run this class, and to call the

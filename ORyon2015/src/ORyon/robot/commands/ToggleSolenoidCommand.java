@@ -9,9 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleSolenoidCommand extends Command {
 	private boolean m_state=false;
 	private Solenoid s;
-
-    private ToggleSolenoidCommand() {
-    }
     
     public ToggleSolenoidCommand(Solenoid sol){
     	s=sol;

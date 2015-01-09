@@ -6,7 +6,6 @@
 package ORyon.robot.commands;
 
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
 /**
  *
@@ -17,9 +16,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class SetSolenoidCommand extends Command {
     private boolean m_position = false;
     private Solenoid s;
-    
-    private SetSolenoidCommand() {
-    }
     
     
     public SetSolenoidCommand(Solenoid sol, boolean state){

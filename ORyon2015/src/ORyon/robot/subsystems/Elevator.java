@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Elevator extends Subsystem {
     
-    private Victor lift1, lift2;
+    private Victor lift1;
     private DigitalInput bottom;
 
     public Elevator(){

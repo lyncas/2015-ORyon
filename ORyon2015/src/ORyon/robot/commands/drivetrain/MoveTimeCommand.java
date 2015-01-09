@@ -1,7 +1,6 @@
 package ORyon.robot.commands.drivetrain;
 
 import ORyon.robot.Robot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
