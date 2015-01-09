@@ -21,6 +21,10 @@ public class HW {
     public static final int 
     		encA = 0, encB = 1;
     
+    // ELEVATOR BUTTONS
+    public static final int 
+    		bot = 9;
+    
     // CLAMP SOLENOIDS
     public static final int
     		solenoid = 0;

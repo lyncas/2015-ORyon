@@ -2,8 +2,10 @@ package ORyon.robot.subsystems;
 
 import ORyon.robot.HW;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Elevator extends PIDSubsystem {
     
     private Victor lift1, lift2;
+    private DigitalInput bottom;
     private Encoder enc; // YUMO model E6A2-CW3C from sparkfun
     
     private final double pulley_circumference = 11.5;//inches
@@ -26,6 +29,7 @@ public class Elevator extends PIDSubsystem {
     	
     	lift1 = new Victor(HW.lift1);
     	lift2 = new Victor(HW.lift2); 
+    	bottom = new DigitalInput(HW.bot);
     	enc = new Encoder(HW.encA,HW.encB,false,EncodingType.k4X);//4X, because why not
     	enc.reset();
     	setPercentTolerance(5.0);
@@ -34,8 +38,15 @@ public class Elevator extends PIDSubsystem {
     
     
     public void set(double power){
-    	lift1.set(power);
-    	lift2.set(power);
+    	SmartDashboard.putBoolean("button", bottom.get());
+    	if(bottom.get() || power >= 0){
+    		lift1.set(power);
+    		lift2.set(power);
+    	}
+    	else{
+    		lift1.set(0);
+    		lift2.set(0);
+    	}
     }
 
     public void initDefaultCommand() {
