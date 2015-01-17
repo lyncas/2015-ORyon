@@ -31,7 +31,7 @@ public class Clamp extends Subsystem {
     }
     
     public void set(boolean close){
-    	s.set(close == close_val);
+    	s.set(close != close_val);
     }
     
     public Solenoid getSolenoid(){

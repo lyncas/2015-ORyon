@@ -3,13 +3,15 @@ package ORyon.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import ORyon.robot.commands.auton.MainAuton;
 import ORyon.robot.subsystems.Clamp;
 import ORyon.robot.subsystems.Drivetrain;
 import ORyon.robot.subsystems.Elevator;
-import ORyon.robot.utils.GamePad;
+import ORyon.robot.subsystems.ElevatorOpen;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,23 +23,23 @@ import ORyon.robot.utils.GamePad;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final Elevator elevator = new Elevator();
 	public static final Clamp clamp = new Clamp();
+	public static final ElevatorOpen elevator = new ElevatorOpen();
 	public static OI oi;
 
-    Command autonomousCommand;
+    CommandGroup autonomousCommand = new MainAuton();
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	clamp.set(true);
 		oi = new OI();
-		autonomousCommand=new MainAuton();
-		//getWatchdog().setEnabled(false);
+
     }
 	
-	public void disabledPeriodic() {
+ 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
 

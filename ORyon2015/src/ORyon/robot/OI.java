@@ -58,22 +58,29 @@ public class OI {
     private Button b2_clicL = new JoystickButton(gp2, gp2.CLICK_L);
     
     public OI(){
-    	b_trigR.whileHeld(new ContinuousLiftCommand(1));
-    	b_trigL.whileHeld(new ContinuousLiftCommand(-1));
+    	b_trigR.whenPressed(new ContinuousLiftCommand(1));
+    	b_trigL.whenPressed(new ContinuousLiftCommand(-1));
     	
-    	b_bumpR.whileHeld(new ContinuousLiftCommand(0.3));
-    	b_bumpL.whileHeld(new ContinuousLiftCommand(-0.1));
+    	b_bumpR.whenPressed(new ContinuousLiftCommand(0.3));
+    	b_bumpL.whenPressed(new ContinuousLiftCommand(-0.1));
+    	
+
+    	b_trigR.whenReleased(new ContinuousLiftCommand(0));
+    	b_trigL.whenReleased(new ContinuousLiftCommand(0));
+    	
+    	b_bumpR.whenReleased(new ContinuousLiftCommand(0));
+    	b_bumpL.whenReleased(new ContinuousLiftCommand(0));
     	
     	b_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));
     	
     	
-    	b2_trigR.whileHeld(new ContinuousLiftCommand(1));
+    	/*b2_trigR.whileHeld(new ContinuousLiftCommand(1));
     	b2_trigL.whileHeld(new ContinuousLiftCommand(-1));
-    	
+    	 
     	b2_bumpR.whileHeld(new ContinuousLiftCommand(0.3));
     	b2_bumpL.whileHeld(new ContinuousLiftCommand(-0.3));
     	
-    	b2_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));
+    	b2_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));*/
     }
 }
 

@@ -1,23 +1,21 @@
-package ORyon.robot.commands.elevator;
+package ORyon.robot.commands;
 
-import ORyon.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class PIDLiftCommand extends Command {
-	private double m_setpoint;
-
-	// Setpoint is inches above min
-    public PIDLiftCommand(double setpoint) {
-        requires(Robot.elevator);
-        m_setpoint=setpoint;
+public class CommandLogger extends Command {
+	String a;
+    public CommandLogger(String a) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	this.a = a;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Robot.elevator.enable();
+    	System.out.println(a);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,17 +24,15 @@ public class PIDLiftCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;//return Robot.elevator.onTarget();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//Robot.elevator.disable();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
