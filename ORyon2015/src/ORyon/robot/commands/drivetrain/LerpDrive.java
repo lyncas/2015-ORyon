@@ -34,7 +34,7 @@ public class LerpDrive extends Command {
     }
     
     public LerpDrive(double limit) {
-    	// Use requires() here to declare subsystem dependencies
+    // Use requires() here to declare subsystem dependencies
     	requires(Robot.drivetrain);
     	m_limit=limit;
         }
@@ -75,12 +75,12 @@ public class LerpDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-	return false;
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-	Robot.drivetrain.arcadeDrive(0, 0);
+    	Robot.drivetrain.arcadeDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

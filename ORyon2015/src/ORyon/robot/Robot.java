@@ -76,6 +76,10 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putBoolean("Lift Top", Robot.elevator.getTopSwitch());
+        SmartDashboard.putBoolean("Lift Bottom", Robot.elevator.getBotSwitch());
+        SmartDashboard.putBoolean("Tote Front", Robot.elevator.getPositionButton());
+        Robot.drivetrain.updateLidarSmartDash();
     }
     
     /**

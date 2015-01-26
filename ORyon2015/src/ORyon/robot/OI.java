@@ -59,18 +59,17 @@ public class OI {
     
     public OI(){
     	b_trigR.whenPressed(new ContinuousLiftCommand(1));
-    	b_trigL.whenPressed(new ContinuousLiftCommand(-1));
-    	
-    	b_bumpR.whenPressed(new ContinuousLiftCommand(0.3));
-    	b_bumpL.whenPressed(new ContinuousLiftCommand(-0.1));
-    	
-
     	b_trigR.whenReleased(new ContinuousLiftCommand(0));
+
+    	b_trigL.whenPressed(new ContinuousLiftCommand(-1));
     	b_trigL.whenReleased(new ContinuousLiftCommand(0));
     	
+    	b_bumpR.whenPressed(new ContinuousLiftCommand(0.3));
     	b_bumpR.whenReleased(new ContinuousLiftCommand(0));
+
+    	b_bumpL.whenPressed(new ContinuousLiftCommand(-0.1));
     	b_bumpL.whenReleased(new ContinuousLiftCommand(0));
-    	
+
     	b_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));
     	
     	
