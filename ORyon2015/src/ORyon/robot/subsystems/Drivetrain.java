@@ -7,6 +7,7 @@ import ORyon.robot.utils.Lidar;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -39,7 +40,7 @@ public class Drivetrain extends Subsystem {
 		// drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		drive.setSafetyEnabled(false);
 
-		lidar = new Lidar(HW.i2cLidarAddress);
+		lidar = new Lidar(Port.kOnboard);
 	}
 
 	public void initDefaultCommand() {
@@ -59,7 +60,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void updateLidarSmartDash() {
-		SmartDashboard.putNumber("Lidar Inches", lidar.getDistanceIn());
+		SmartDashboard.putNumber("Lidar Cm", lidar.getDistance());
 	}
 
 }
