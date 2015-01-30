@@ -25,6 +25,7 @@ public class AutoStackCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	finished = !Robot.elevator.getPositionButton();
+    	count = 0;
     }
     
     // Called repeatedly when this Command is scheduled to run
@@ -53,6 +54,13 @@ public class AutoStackCommand extends Command {
     		finished = false;
     	}
     	
+    	if(liftAtBottom && toteGrabbed && count<50) {
+    		Robot.elevator.set(0.5);
+    		count++;
+    	} else {
+    		Robot.elevator.set(0);
+    	}
+    	
     	
 
     	//Pseudocode
@@ -67,7 +75,7 @@ public class AutoStackCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return finished;
+        return !Robot.elevator.getPositionButton();
     }
 
     // Called once after isFinished returns true
@@ -82,6 +90,6 @@ public class AutoStackCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.elevator.set(0);
+    	end();
     }
 }

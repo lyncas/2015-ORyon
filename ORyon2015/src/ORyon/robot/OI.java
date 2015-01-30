@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import ORyon.robot.commands.ToggleSolenoidCommand;
+import ORyon.robot.commands.elevator.AutoStackCommand;
 import ORyon.robot.commands.elevator.ContinuousLiftCommand;
 import ORyon.robot.utils.GamePad;
 import ORyon.robot.utils.GamePad.AxisButton;
@@ -72,6 +73,7 @@ public class OI {
 
     	b_X.whenPressed(new ToggleSolenoidCommand(Robot.clamp.getSolenoid()));
     	
+    	b_Y.whenPressed(new AutoStackCommand());
     	
     	/*b2_trigR.whileHeld(new ContinuousLiftCommand(1));
     	b2_trigL.whileHeld(new ContinuousLiftCommand(-1));

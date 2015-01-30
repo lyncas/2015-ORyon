@@ -21,7 +21,9 @@ public class ContinuousLiftCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.set(m_power);
+    	if(!Robot.elevator.getTopSwitch() && !Robot.elevator.getBotSwitch()) {
+    		Robot.elevator.set(m_power);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
