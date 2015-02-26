@@ -17,7 +17,7 @@ public class HW {
 	// ELEVATOR BUTTONS
 	public static final int bot = 9, top = 7, position = 8;
 	// CLAMP SOLENOIDS
-	public static final int solenoid = 0, grab = 6;
+	public static final int solenoid = 0, grab = 6, solenoidB = 0;
 
 	public static final int i2cLidarAddress = 0x62;
 }

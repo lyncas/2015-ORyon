@@ -5,6 +5,8 @@
  */
 package ORyon.robot.commands;
 
+import ORyon.robot.Robot;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
@@ -16,20 +18,21 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetSolenoidCommand extends Command {
     private boolean m_position = false;
-    private Solenoid s;
+    private DoubleSolenoid s;
     
     private SetSolenoidCommand() {
     }
     
     
-    public SetSolenoidCommand(Solenoid sol, boolean state){
+    public SetSolenoidCommand(DoubleSolenoid sol, boolean state){
+    	requires(Robot.clamp);
         s = sol;
         m_position = state;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        s.set(m_position);
+        Robot.clamp.set(m_position);
     }
 
     // Called repeatedly when this Command is scheduled to run

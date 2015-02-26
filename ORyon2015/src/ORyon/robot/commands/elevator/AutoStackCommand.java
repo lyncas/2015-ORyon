@@ -39,7 +39,7 @@ public class AutoStackCommand extends Command {
     	hasChangedTotes = false;
     	
     	if(!hasChangedTotes) {
-    		Robot.clamp.getSolenoid().set(true);
+    		Robot.clamp.set(true);
     		hasChangedTotes = true;
     	}
     	
@@ -50,7 +50,7 @@ public class AutoStackCommand extends Command {
     	}
     	
     	if(liftAtBottom && !toteGrabbed) {
-    		Robot.clamp.getSolenoid().set(false);
+    		Robot.clamp.set(false);
     		finished = false;
     	}
     	
